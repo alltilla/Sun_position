@@ -6,6 +6,9 @@ import sun_position as SP
 from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot
 from plotly.graph_objs import Scatter, Figure, Layout
 
+latitude = math.radians(47.497912)  # radián / @Budapest
+longitude = 19.040235  # fok / @Budapest
+timezone = 1.0000000  # @Budapest
 
 def sun_energy(alt, azimut, delta_sec, panel_alt, panel_azimut):
     panel_area = 1.64 * 0.992  # m2
@@ -95,7 +98,7 @@ def sun_daily_movement(date, resolution):
     date_0 = float(date_s)
 
     for s in range(0, steps):  # Sun position data
-        UT_time_0, elev_0, azim_0 = SP.sun_position(date_0, False)
+        UT_time_0, elev_0, azim_0 = SP.sun_position(date_0, latitude, longitude, timezone, False)
         time_0_data.append(UT_time_0)
         elev_data.append(elev_0)
         alt_data.append(azim_0)
@@ -127,7 +130,7 @@ def daily_energy_gain(date, resolution, print_plot):  # 38.82 fok dőlésszög e
     date_0 = float(date_s)
 
     for k in range(0, steps + 1):
-        UT_time, elev, azim = SP.sun_position(date_0, False)
+        UT_time, elev, azim = SP.sun_position(date_0, latitude, longitude, timezone, False)
 
         # Energia adatok
         energy_DAT_data = energy_DAT(elev, azim, delta_T)  # kJ
@@ -171,7 +174,7 @@ def daily_energy_gain_fixed(date, resolution, panel_tilt, print_plot):
     date_0 = float(date_s)
 
     for k in range(0, steps + 1):
-        UT_time, elev, azim = SP.sun_position(date_0, False)
+        UT_time, elev, azim = SP.sun_position(date_0, latitude, longitude, timezone, False)
 
         # Energia adatok
         energy_fix_data = energy_fixed(elev, azim, delta_T, panel_tilt, 180)  # kJ

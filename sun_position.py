@@ -46,11 +46,7 @@ def JD(year, month, day, hour, minute):
     return JD
 
 
-def sun_position(julian_date, info):
-    global latitude
-    global longitude
-    global timezone
-
+def sun_position(julian_date, latitude, longitude, timezone, info):
     julian_date -= timezone/24  # JD helyi idő szerint definiálandó!
 
     n = julian_date - 2451545.0000000
@@ -138,11 +134,6 @@ def sun_position(julian_date, info):
         pass
 
     return UT_string, sun_elevation_deg, sun_azimut_deg
-
-
-latitude = math.radians(47.497912)  # radián / @Budapest
-longitude = 19.040235  # fok / @Budapest
-timezone = 1.0000000  # @Budapest
 
 # Teszteléshez
 # curr_time = JD(2018, 2, 14, 12, 00, False) # Helyi idő szerint
