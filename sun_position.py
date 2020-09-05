@@ -18,7 +18,7 @@ def day_to_time(time):  # tizedesjegyben kifejezve, ez kell?
     return time_d, time_h, time_m, time_s
 
 
-def JD(year, month, day, hour, minute, info):
+def JD(year, month, day, hour, minute):
     Y = year
     M = month
     D = day + float(hour)/24 + float(minute)/1440
@@ -42,10 +42,6 @@ def JD(year, month, day, hour, minute, info):
 
     E = int(30.6001*(M+1))
     JD = B + C + D + E + 1720994.5
-
-    if info is True:
-        date_string = str(year) + "-" + str(month) + "-" + str(day) + " " + str(hour) + ":" + str(minute)
-        print(date_string + " julián dátuma (JD): " + str(JD) + "\n")
 
     return JD
 

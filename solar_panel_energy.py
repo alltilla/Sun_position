@@ -306,4 +306,4 @@ panel_power = 285  # W
 # daily_energy_gain_fixed(SP.JD(2018, 2, 14, 0, 0, False), 1, 40, True)
 # daily_energy_gain_fixed(SP.JD(2018, 2, 14, 0, 0, False), 1, 45, True)
 # daily_energy_gain_fixed(SP.JD(2018, 2, 14, 0, 0, False), 1, 50, True)
-interval_energy_gain_optimum_calc(SP.JD(2018, 1, 1, 0, 0, False), 365, 15, 50, 35)
+interval_energy_gain_optimum_calc(SP.JD(2018, 1, 1, 0, 0), 365, 15, 50, 35)

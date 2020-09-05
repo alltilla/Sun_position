@@ -38,4 +38,4 @@ def test_day_to_time(days, days_hours_minutes_seconds):
     ]
 )
 def test_JD(year, month, day, hour, minute, julian_date):
-    assert JD(year, month, day, hour, minute, False) == julian_date
+    assert JD(year, month, day, hour, minute) == julian_date
