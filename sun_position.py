@@ -27,9 +27,6 @@ def JD(year, month, day, hour, minute, info):
         Y -= 1
         M += 12
 
-    else:
-        pass
-
     A = int(Y/100)
 
     x = Y*10000 + M*100 + D
@@ -50,9 +47,6 @@ def JD(year, month, day, hour, minute, info):
         date_string = str(year) + "-" + str(month) + "-" + str(day) + " " + str(hour) + ":" + str(minute)
         print(date_string + " julián dátuma (JD): " + str(JD) + "\n")
 
-    else:
-        pass
-
     return JD
 
 
@@ -61,9 +55,7 @@ def sun_position(julian_date, info):
     global longitude
     global timezone
 
-    # print(str(julian_date))
     julian_date -= timezone/24  # JD helyi idő szerint definiálandó!
-    # print(str(julian_date))
 
     n = julian_date - 2451545.0000000
     L = 280.460 + 0.9856474*n  # fok
