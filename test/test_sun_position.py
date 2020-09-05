@@ -1,6 +1,6 @@
 import pytest
 
-from sun_position import hour_to_time, day_to_time
+from sun_position import hour_to_time, day_to_time, JD
 
 
 @pytest.mark.parametrize(
@@ -27,3 +27,15 @@ def test_hour_to_time(hours, hours_minutes_seconds):
 )
 def test_day_to_time(days, days_hours_minutes_seconds):
     assert day_to_time(days) == days_hours_minutes_seconds
+
+
+@pytest.mark.parametrize(
+    'year,month,day,hour,minute,julian_date',
+    [
+        (0, 0, 0, 0, 0, 1721024.5),
+        (1, 2, 3, 4, 5, 1721456.670138889),
+        (2020, 4, 30, 12, 0, 2458970.0)
+    ]
+)
+def test_JD(year, month, day, hour, minute, julian_date):
+    assert JD(year, month, day, hour, minute, False) == julian_date
